@@ -80,8 +80,9 @@ function Home() {
           </button>
         </div>
         <textarea
-          className="bg-[var(--primary-color)] w-full focus:outline-none focus:border-none rounded-b-2xl p-4 text-black text-[15px] resize-none "
+          className="bg-[var(--primary-color)] w-full focus:outline-none focus:border-none rounded-b-2xl p-4 text-black text-[15px] resize-none scrollbar-hidden"
           value={value}
+        
           onChange={(e) => setValue(e.target.value)}
           placeholder="Type your paste..."
           rows={20}
