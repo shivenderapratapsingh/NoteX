@@ -28,8 +28,8 @@ function Paste() {
     if (navigator.share) {
       navigator
         .share({
-          title: paste.title,
-          text: paste.content,
+          title: paste?.title,
+          text: paste?.content,
           url: window.location.origin + `/pastes/${paste._id}`,
         })
         .then(() => console.log("Shared successfully"))
@@ -37,7 +37,7 @@ function Paste() {
     } else {
       // fallback for unsupported browsers
       navigator.clipboard.writeText(
-        window.location.origin + `/pastes/${paste._id}`
+        window.location.origin + `/pastes/${paste?._id}`
       );
       toast.success("Link copied to clipboard!");
     }
@@ -63,7 +63,7 @@ function Paste() {
               return (
                 <div className="bg-[var(--primary-color)] rounded-2xl text-black">
                   <div className="flex justify-between rounded-2xl p-3">
-                    <div className="text-2xl"> {paste.title} </div>
+                    <div className="text-2xl"> {paste?.title} </div>
                     <div>
                       <Link
                         to={`/?pasteId=${paste?._id}`}
@@ -74,7 +74,7 @@ function Paste() {
                         </button>
                       </Link>
                       <Link
-                        to={`/pastes/${paste._id}`}
+                        to={`/pastes/${paste?._id}`}
                         className="no-underline text-inherit"
                       >
                         <button className="p-[2px] rounded">
@@ -105,7 +105,7 @@ function Paste() {
                     </div>
                   </div>
                   <div className="flex pl-3 p-3 max-h-[300px] overflow-auto scrollbar-hidden whitespace-pre-wrap">
-                    {paste.content}
+                    {paste?.content}
                   </div>
                 </div>
               );
