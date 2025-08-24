@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 function ViewPaste() {
   const { id } = useParams();
-  const allPastes = useSelector((state) => state.paste.pastes);
+  const allPastes = useSelector((state) => state.paste?.pastes);
   const paste = allPastes.filter((p) => p._id == id)[0];
   return (
     <div className="w-full sm:w-[80%] max-w-[800px]">
@@ -15,7 +15,7 @@ function ViewPaste() {
           type="search"
           disabled
           placeholder="search here"
-          value={paste.title}
+          value={paste?.title}
         />
       </div>
 
@@ -29,7 +29,7 @@ function ViewPaste() {
           <button
             className=""
             onClick={() => {
-              navigator.clipboard.writeText(paste.content);
+              navigator.clipboard.writeText(paste?.content);
               toast.success("Copied to Clipboard", {
                 position: "top-right",
               });
@@ -40,7 +40,7 @@ function ViewPaste() {
         </div>
         <textarea
           className=" bg-[var(--primary-color)] focus:outline-none focus:border-none w-full rounded-b-2xl p-4 text-black text-[15px] resize-none scrollbar-hidden"
-          value={paste.content}
+          value={paste?.content}
           placeholder="Enter Content"
           rows={20}
         />
